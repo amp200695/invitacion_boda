@@ -15,13 +15,25 @@ setInterval(actualizarContador, 1000 * 60 * 60 * 24);
 // Mostrar "Gracias" tras enviar el formulario
 const form = document.getElementById("rsvp-form");
 const gracias = document.getElementById("gracias");
+const triste = document.getElementById("triste");
+const selectAsistencia = form.querySelector('select[name="asistencia"]');
+const selectMenu = form.querySelector('select[name="menu"]');
+const campoAlergias = document.getElementById("campo-alergias");
 
 form.addEventListener("submit", function(e){
-  e.preventDefault(); // evita recarga
-  gracias.style.display = "block";
+  e.preventDefault();
+
+  const asistencia = selectAsistencia.value;
+
+  if (asistencia === "Sí") {
+    gracias.style.display = "block";
+  } else {
+    triste.style.display = "block";
+  }
+
   form.style.display = "none";
 
-  // enviar datos a Formspree
+  // Enviar datos a Formspree
   const action = form.action;
   const data = new FormData(form);
 
@@ -29,11 +41,8 @@ form.addEventListener("submit", function(e){
     method: 'POST',
     body: data,
     headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    // opcional: manejar respuesta
-  }).catch(error => {
-    console.error('Error al enviar:', error);
-  });
+  })
+  .catch(error => console.error('Error al enviar:', error));
 });
 
 // Galería slider
@@ -68,5 +77,15 @@ slidesContainer.addEventListener('touchend', e => {
     showSlide(currentIndex - 1); // swipe derecha
   } else if(startX - endX > 50) {
     showSlide(currentIndex + 1); // swipe izquierda
+  }
+});
+
+selectMenu.addEventListener("change", () => {
+  if (selectMenu.value === "Alergias / intolerancias") {
+    campoAlergias.style.display = "block";
+    campoAlergias.querySelector('textarea').required = true;  // ACTIVAR required
+  } else {
+    campoAlergias.style.display = "none";
+    campoAlergias.querySelector('textarea').required = false; // DESACTIVAR required
   }
 });
