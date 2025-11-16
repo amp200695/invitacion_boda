@@ -36,6 +36,11 @@ section {
   font-weight: bold;
 }
 
+#div_menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 form {
   max-width: 420px;
   margin: 1rem auto 0;

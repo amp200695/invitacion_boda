@@ -58,18 +58,20 @@
       <label>¿Asistirás?</label>
       <select name="asistencia" required>
         <option value="">Selecciona una opción</option>
-        <option value="Sí">Sí</option>
+        <option value="Si">Sí</option>
         <option value="No">No</option>
       </select>
 
-      <label>Tipo de menú:</label>
-      <select name="menu" required>
-        <option value="">Selecciona una opción</option>
-        <option value="Normal">Normal</option>
-        <option value="Vegetariano">Vegetariano</option>
-        <option value="Alergias / intolerancias">Alergias / intolerancias</option>
-        <option value="Embarazada">Embarazada</option>
-      </select>
+      <div style="display:none;" id="div_menu">
+        <label>Tipo de menú:</label>
+        <select name="menu">
+          <option value="">Selecciona una opción</option>
+          <option value="Normal">Normal</option>
+          <option value="Vegetariano">Vegetariano</option>
+          <option value="Alergias / intolerancias">Alergias / intolerancias</option>
+          <option value="Embarazada">Embarazada</option>
+        </select>
+      </div> 
 
       <label>Mensaje (opcional):</label>
       <textarea name="mensaje" placeholder="Déjanos unas palabras bonitas ❤️"></textarea>
@@ -87,7 +89,6 @@
     </div>
   </section>
 
-  <!-- Galería de fotos -->
   <!-- Galería de fotos -->
 <section id="galeria">
   <h3>Momentos nuestros 💕</h3>
@@ -111,7 +112,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>Con cariño, Gian & Ana — 11 de abril de 2026 💍</p>
+    <p>Con cariño, Ana & Gian  — 11 de abril de 2026 💍</p>
   </footer>
 
   <script src="script.js"></script>

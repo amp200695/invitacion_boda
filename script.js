@@ -16,16 +16,27 @@ setInterval(actualizarContador, 1000 * 60 * 60 * 24);
 const form = document.getElementById("rsvp-form");
 const gracias = document.getElementById("gracias");
 const triste = document.getElementById("triste");
+const div_menu = document.getElementById("div_menu");
 const selectAsistencia = form.querySelector('select[name="asistencia"]');
 const selectMenu = form.querySelector('select[name="menu"]');
 const campoAlergias = document.getElementById("campo-alergias");
 
+selectAsistencia.addEventListener('change', function() {
+  const asistencia = selectAsistencia.value;
+  if (asistencia === "Si") {
+    div_menu.style.display = "contents";
+    selectMenu.required = true;
+  } else {
+    div_menu.style.display = "none";
+    selectMenu.required = false;
+  }
+});
+
 form.addEventListener("submit", function(e){
   e.preventDefault();
-
   const asistencia = selectAsistencia.value;
 
-  if (asistencia === "Sí") {
+  if (asistencia === "Si") {
     gracias.style.display = "block";
   } else {
     triste.style.display = "block";
@@ -77,15 +88,5 @@ slidesContainer.addEventListener('touchend', e => {
     showSlide(currentIndex - 1); // swipe derecha
   } else if(startX - endX > 50) {
     showSlide(currentIndex + 1); // swipe izquierda
-  }
-});
-
-selectMenu.addEventListener("change", () => {
-  if (selectMenu.value === "Alergias / intolerancias") {
-    campoAlergias.style.display = "block";
-    campoAlergias.querySelector('textarea').required = true;  // ACTIVAR required
-  } else {
-    campoAlergias.style.display = "none";
-    campoAlergias.querySelector('textarea').required = false; // DESACTIVAR required
   }
 });
