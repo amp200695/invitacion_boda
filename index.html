@@ -39,6 +39,7 @@
       <!-- Card Ceremonia -->
       <div class="card">
         <h4>🚍 Recogida Autobús</h4>
+        <p>Para vuestra comodidad hemos contratado un servicio de autobús para ida y vuelta</p>
         <p>Pronto actualizaremos la ubicación ⚡</p>
         <div class="mapa-container placeholder-mapa">📍 Mapa disponible próximamente</div>
 
@@ -72,6 +73,15 @@
           <option value="Embarazada">Embarazada</option>
         </select>
       </div> 
+
+      <div style="display:none;" id="div_bus">
+        <label>¿Utilizarás nuestro autobús para ir y volver?</label>
+        <select name="bus">
+          <option value="">Selecciona una opción</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
 
       <label>Mensaje (opcional):</label>
       <textarea name="mensaje" placeholder="Déjanos unas palabras bonitas ❤️"></textarea>
@@ -111,7 +121,6 @@
       <img class="slide" src="fotos/foto15.jpg" alt="Foto 15">
       <img class="slide" src="fotos/foto16.jpg" alt="Foto 16">
       <img class="slide" src="fotos/foto17.jpg" alt="Foto 17">
-      <img class="slide" src="fotos/foto18.jpg" alt="Foto 18">
       <img class="slide" src="fotos/foto19.jpg" alt="Foto 19">
     </div>
     <button class="next">&#10095;</button>
@@ -120,7 +129,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>Con cariño, Ana & Gian  — 11 de abril de 2026 💍</p>
+    <p>Ana & Gian  — 11 de abril de 2026 💍</p>
   </footer>
 
   <script src="script.js"></script>

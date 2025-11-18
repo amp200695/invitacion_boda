@@ -1,5 +1,5 @@
 // Contador de días hasta la boda
-const fechaBoda = new Date("2026-04-21");
+const fechaBoda = new Date("2026-04-11");
 const contador = document.getElementById("contador");
 
 function actualizarContador() {
@@ -17,8 +17,10 @@ const form = document.getElementById("rsvp-form");
 const gracias = document.getElementById("gracias");
 const triste = document.getElementById("triste");
 const div_menu = document.getElementById("div_menu");
+const div_bus = document.getElementById("div_bus");
 const selectAsistencia = form.querySelector('select[name="asistencia"]');
 const selectMenu = form.querySelector('select[name="menu"]');
+const selectBus = form.querySelector('select[name="bus"]');
 const campoAlergias = document.getElementById("campo-alergias");
 
 selectAsistencia.addEventListener('change', function() {
@@ -26,9 +28,13 @@ selectAsistencia.addEventListener('change', function() {
   if (asistencia === "Si") {
     div_menu.style.display = "contents";
     selectMenu.required = true;
+    div_bus.style.display = "contents";
+    selectBus.required = true;
   } else {
     div_menu.style.display = "none";
     selectMenu.required = false;
+    div_bus.style.display = "none";
+    selectBus.required = false;
   }
 });
 
